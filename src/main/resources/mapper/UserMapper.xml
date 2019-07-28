@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gyl.workcollect.biz.mapper.UserMapper">
+
+    <sql id="user_columns">
+        id,
+        user_name,
+        emp_no,
+        work_place,
+        dept_lv1,
+        dept_lv2,
+        mobile
+    </sql>
+
+    <resultMap id="user_rm" type="com.gyl.workcollect.biz.model.po.UserPO">
+        <result column="user_name" property="userName"/>
+        <result column="emp_no" property="empNo"/>
+        <result column="work_place" property="workPlace"/>
+        <result column="dept_lv1" property="deptLv1"/>
+        <result column="mobile" property="mobile"/>
+        <result column="dept_lv2" property="deptLv2"/>
+    </resultMap>
+
+    <select id="queryUserByName" parameterType="java.lang.String" resultMap="user_rm">
+        SELECT
+        <include refid="user_columns"/>
+        FROM work_collect.user
+        WHERE USER_NAME = #{userName}
+    </select>
+
+    <insert id="saveUser" parameterType="com.gyl.workcollect.biz.model.po.UserPO">
+        insert into work_collect.user (
+            <include refid="user_columns"/>
+        )value (
+            uuid(),
+            #{userName},
+            #{empNo},
+            #{workPlace},
+            #{deptLv1},
+            #{deptLv2},
+            #{mobile}
+        )
+    </insert>
+
+</mapper>
