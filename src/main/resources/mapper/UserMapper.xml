@@ -33,7 +33,7 @@
         insert into work_collect.user (
             <include refid="user_columns"/>
         )value (
-            uuid(),
+            #{id},
             #{userName},
             #{empNo},
             #{workPlace},
@@ -42,5 +42,15 @@
             #{mobile}
         )
     </insert>
+
+    <update id="updateUser" parameterType="com.gyl.workcollect.biz.model.po.UserPO">
+        update work_collect.user set user_name = #{userName},
+        emp_no = #{empNo},
+        work_place = #{workPlace},
+        dept_lv1 = #{deptLv1},
+        dept_lv2 = #{deptLv2},
+        mobile = #{mobile}
+        where id = #{id}
+    </update>
 
 </mapper>
