@@ -1,5 +1,6 @@
 package com.gyl.workcollect.biz.controller;
 
+import com.gyl.workcollect.biz.model.dto.AllowanceDTO;
 import com.gyl.workcollect.biz.model.dto.CollecteDTO;
 import com.gyl.workcollect.biz.service.CollectService;
 import com.gyl.workcollect.core.util.BaseResult;
@@ -16,6 +17,12 @@ public class CollectController {
     @PostMapping("/workcollect/submitCollect")
     public BaseResult submitCollect(@RequestBody CollecteDTO collecteDTO) {
         collectService.submitCollect(collecteDTO);
+        return new BaseResult();
+    }
+
+    @PostMapping("/workcollect/submitAllowance")
+    public BaseResult submitAllowance(@RequestBody AllowanceDTO allowanceDTO) {
+        collectService.submitAllowance(allowanceDTO);
         return new BaseResult();
     }
 }

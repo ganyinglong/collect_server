@@ -10,7 +10,7 @@
         work_place,
         dept_lv1,
         dept_lv2,
-        mobile
+        mobile,project_name,initiation_date,probation_end,quit_date
     </sql>
 
     <resultMap id="user_rm" type="com.gyl.workcollect.biz.model.po.UserPO">
@@ -20,6 +20,10 @@
         <result column="dept_lv1" property="deptLv1"/>
         <result column="mobile" property="mobile"/>
         <result column="dept_lv2" property="deptLv2"/>
+        <result column="project_name" property="projectName"/>
+        <result column="initiation_date" property="initiationDate"/>
+        <result column="probation_end" property="probationEnd"/>
+        <result column="quit_date" property="quitDate"/>
     </resultMap>
 
     <select id="queryUserByName" parameterType="java.lang.String" resultMap="user_rm">
@@ -39,7 +43,11 @@
             #{workPlace},
             #{deptLv1},
             #{deptLv2},
-            #{mobile}
+            #{mobile},
+            #{projectName},
+            #{initiationDate},
+            #{probationEnd},
+            #{quitDate}
         )
     </insert>
 
@@ -49,7 +57,11 @@
         work_place = #{workPlace},
         dept_lv1 = #{deptLv1},
         dept_lv2 = #{deptLv2},
-        mobile = #{mobile}
+        mobile = #{mobile},
+        project_name = #{projectName},
+        initiation_date = #{initiationDate},
+        probation_end = #{probationEnd},
+        quit_date = #{quitDate}
         where id = #{id}
     </update>
 

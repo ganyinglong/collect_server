@@ -1,6 +1,6 @@
 package com.gyl.workcollect.biz.mapper;
 
-import com.gyl.workcollect.biz.model.dto.Attendance;
+import com.gyl.workcollect.biz.model.po.Attendance;
 
 public interface AttendanceMapper  {
 

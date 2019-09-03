@@ -6,7 +6,7 @@ public class CollecteDTO {
     private String userName;
     private String empNo;
     private String workPlace;
-    private List<Attendance> attendances;
+    private List<AttendanceDTO> attendances;
 
     public String getUserName() {
         return userName;
@@ -32,11 +32,11 @@ public class CollecteDTO {
         this.workPlace = workPlace;
     }
 
-    public List<Attendance> getAttendances() {
+    public List<AttendanceDTO> getAttendances() {
         return attendances;
     }
 
-    public void setAttendances(List<Attendance> attendances) {
+    public void setAttendances(List<AttendanceDTO> attendances) {
         this.attendances = attendances;
     }
 }

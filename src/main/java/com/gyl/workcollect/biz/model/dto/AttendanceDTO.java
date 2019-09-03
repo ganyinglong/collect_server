@@ -1,8 +1,6 @@
 package com.gyl.workcollect.biz.model.dto;
 
-import com.gyl.workcollect.biz.model.po.BasePO;
-
-public class Attendance extends BasePO {
+public class AttendanceDTO {
     private String uid;
     private String inputDate;
     private String dateType;
@@ -14,20 +12,12 @@ public class Attendance extends BasePO {
     private Integer collectMonth;
     private Integer collectYear;
 
-    public Integer getCollectMonth() {
-        return collectMonth;
+    public String getUid() {
+        return uid;
     }
 
-    public void setCollectMonth(Integer collectMonth) {
-        this.collectMonth = collectMonth;
-    }
-
-    public Integer getCollectYear() {
-        return collectYear;
-    }
-
-    public void setCollectYear(Integer collectYear) {
-        this.collectYear = collectYear;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getInputDate() {
@@ -86,11 +76,19 @@ public class Attendance extends BasePO {
         this.subsidyAmount = subsidyAmount;
     }
 
-    public String getUid() {
-        return uid;
+    public Integer getCollectMonth() {
+        return collectMonth;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setCollectMonth(Integer collectMonth) {
+        this.collectMonth = collectMonth;
+    }
+
+    public Integer getCollectYear() {
+        return collectYear;
+    }
+
+    public void setCollectYear(Integer collectYear) {
+        this.collectYear = collectYear;
     }
 }
