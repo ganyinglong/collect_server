@@ -3,7 +3,9 @@
 
 <mapper namespace="com.gyl.workcollect.biz.mapper.AttendanceMapper">
 
-    <sql id="attendance_columns">id,uid,input_date,date_type,checkin_time,checkout_time,subsidy_start_time,subsidy_length,subsidy_amount,collect_month,collect_year</sql>
+    <sql id="attendance_columns">
+        id,uid,input_date,date_type,checkin_time,checkout_time,subsidy_start_time,subsidy_length,subsidy_amount,collect_month,collect_year
+    </sql>
 
     <resultMap id="attendance_rm" type="com.gyl.workcollect.biz.model.po.Attendance">
         <result column="id" property="id"/>
@@ -21,19 +23,19 @@
 
     <insert id="saveAttendance" parameterType="com.gyl.workcollect.biz.model.po.Attendance">
         insert into work_collect.attendance (
-            <include refid="attendance_columns"/>
+        <include refid="attendance_columns"/>
         )values (
-            REPLACE(uuid(),'-',''),
-            #{uid},
-            #{inputDate},
-            #{dateType},
-            #{checkinTime},
-            #{checkoutTime},
-            #{subsidyStartTime},
-            #{subsidyLength},
-            #{subsidyAmount},
-            #{collectMonth},
-            #{collectYear}
+        REPLACE(uuid(),'-',''),
+        #{uid},
+        #{inputDate},
+        #{dateType},
+        #{checkinTime},
+        #{checkoutTime},
+        #{subsidyStartTime},
+        #{subsidyLength},
+        #{subsidyAmount},
+        #{collectMonth},
+        #{collectYear}
         )
     </insert>
 </mapper>

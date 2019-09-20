@@ -38,8 +38,8 @@ public class BaseMapper {
         return sqlSessionTemplate.delete(statement, parameter);
     }
 
-    protected int update(String statement, Object parameter){
-        return sqlSessionTemplate.update(statement,parameter);
+    protected int update(String statement, Object parameter) {
+        return sqlSessionTemplate.update(statement, parameter);
     }
 
 

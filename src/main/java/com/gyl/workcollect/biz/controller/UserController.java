@@ -13,7 +13,7 @@ public class UserController {
     private UserMapper userMapper;
 
     @GetMapping("/workcollect/queryUserByUserName")
-    public BaseResult<UserPO> queryUserByUserName(String userName){
+    public BaseResult<UserPO> queryUserByUserName(String userName) {
         UserPO userPO = userMapper.queryUserByName(userName);
         return new BaseResult<>(userPO);
     }

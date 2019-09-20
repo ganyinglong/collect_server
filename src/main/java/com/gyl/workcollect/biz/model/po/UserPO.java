@@ -2,17 +2,17 @@ package com.gyl.workcollect.biz.model.po;
 
 import java.util.Date;
 
-public class UserPO extends  BasePO{
-   private String userName;
-   private String empNo;
-   private String workPlace;
-   private String deptLv1;
-   private String deptLv2;
-   private String mobile;
-   private String projectName;
-   private Date initiationDate;
-   private Date probationEnd;
-   private Date quitDate;
+public class UserPO extends BasePO {
+    private String userName;
+    private String empNo;
+    private String workPlace;
+    private String deptLv1;
+    private String deptLv2;
+    private String mobile;
+    private String projectName;
+    private Date initiationDate;
+    private Date probationEnd;
+    private Date quitDate;
 
     public String getUserName() {
         return userName;

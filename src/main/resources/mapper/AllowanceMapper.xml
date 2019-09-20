@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.gyl.workcollect.biz.mapper.AllowanceMapper">
-    
+
     <sql id="allowance_columns">
         id_allowance,
         uid,
@@ -14,25 +14,27 @@
         mark,
         state
     </sql>
-    
+
     <insert id="saveAllowance" parameterType="com.gyl.workcollect.biz.model.dto.Allowance">
         insert into work_collect.allowance(
-            <include refid="allowance_columns"/>
+        <include refid="allowance_columns"/>
         )values (
-            replace(uuid(),'-',''),
-            #{uid},
-            #{projectStart},
-            #{projectEnd},
-            #{projectDays},
-            #{leaveDays},
-            #{leaveDetail},
-            #{mark},
-            1
+        replace(uuid(),'-',''),
+        #{uid},
+        #{projectStart},
+        #{projectEnd},
+        #{projectDays},
+        #{leaveDays},
+        #{leaveDetail},
+        #{mark},
+        1
         )
     </insert>
 
-    <select id="selectAllowancesByUid" parameterType="java.lang.String" resultType="com.gyl.workcollect.biz.model.dto.Allowance">
-        select <include refid="allowance_columns"/>
+    <select id="selectAllowancesByUid" parameterType="java.lang.String"
+            resultType="com.gyl.workcollect.biz.model.dto.Allowance">
+        select
+        <include refid="allowance_columns"/>
         from work_collect.allowance
         where uid = #{uid}
     </select>

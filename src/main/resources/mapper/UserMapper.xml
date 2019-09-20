@@ -35,19 +35,19 @@
 
     <insert id="saveUser" parameterType="com.gyl.workcollect.biz.model.po.UserPO">
         insert into work_collect.user (
-            <include refid="user_columns"/>
+        <include refid="user_columns"/>
         )value (
-            #{id},
-            #{userName},
-            #{empNo},
-            #{workPlace},
-            #{deptLv1},
-            #{deptLv2},
-            #{mobile},
-            #{projectName},
-            #{initiationDate},
-            #{probationEnd},
-            #{quitDate}
+        #{id},
+        #{userName},
+        #{empNo},
+        #{workPlace},
+        #{deptLv1},
+        #{deptLv2},
+        #{mobile},
+        #{projectName},
+        #{initiationDate},
+        #{probationEnd},
+        #{quitDate}
         )
     </insert>
 
