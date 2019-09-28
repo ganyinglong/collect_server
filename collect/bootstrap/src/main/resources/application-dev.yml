@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-userName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: work_collecter
+    password: Gylcollecter
+    url: jdbc:mysql://106.13.17.65:3606/work_collect
+jdbc:
+  initialSize: 2
+  minIdle: 2
+  maxActive: 10
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

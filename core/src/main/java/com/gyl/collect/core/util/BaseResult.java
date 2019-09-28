@@ -1,0 +1,46 @@
+package com.gyl.collect.core.util;
+
+public class BaseResult<T> {
+    private String code;
+    private String msg;
+    private T data;
+
+    public BaseResult(T data) {
+        this(ResultCode.SUCCESS);
+        this.data = data;
+    }
+
+    public BaseResult(ResultCode resultCode) {
+        this.code = resultCode.code;
+        this.msg = resultCode.msg;
+    }
+
+    public BaseResult() {
+        this(ResultCode.SUCCESS);
+        this.data = (T) "";
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+}

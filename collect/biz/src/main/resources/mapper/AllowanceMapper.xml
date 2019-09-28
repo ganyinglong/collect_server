@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gyl.collect.collect.biz.mapper.AllowanceMapper">
+
+    <sql id="allowance_columns">
+        id_allowance,
+        uid,
+        project_start,
+        project_end,
+        project_days,
+        leave_days,
+        leave_detail,
+        mark,
+        state
+    </sql>
+
+    <insert id="saveAllowance" parameterType="com.gyl.collect.collect.biz.model.dto.Allowance">
+        insert into work_collect.allowance(
+        <include refid="allowance_columns"/>
+        )values (
+        replace(uuid(),'-',''),
+        #{uid},
+        #{projectStart},
+        #{projectEnd},
+        #{projectDays},
+        #{leaveDays},
+        #{leaveDetail},
+        #{mark},
+        1
+        )
+    </insert>
+
+    <select id="selectAllowancesByUid" parameterType="java.lang.String"
+            resultType="com.gyl.collect.collect.biz.model.dto.Allowance">
+        select
+        <include refid="allowance_columns"/>
+        from work_collect.allowance
+        where uid = #{uid}
+    </select>
+</mapper>
