@@ -3,6 +3,8 @@ package com.gyl.collect.collect.biz.model.dto;
 import java.util.List;
 
 public class CollecteDTO {
+    private Integer year;
+    private Integer selectedMonth;
     private String userName;
     private String empNo;
     private String workPlace;
@@ -38,5 +40,21 @@ public class CollecteDTO {
 
     public void setAttendances(List<AttendanceDTO> attendances) {
         this.attendances = attendances;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getSelectedMonth() {
+        return selectedMonth;
+    }
+
+    public void setSelectedMonth(Integer selectedMonth) {
+        this.selectedMonth = selectedMonth;
     }
 }

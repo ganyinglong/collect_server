@@ -20,6 +20,11 @@ public class BaseResult<T> {
         this.data = (T) "";
     }
 
+    public BaseResult(String code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
     public String getCode() {
         return code;
     }

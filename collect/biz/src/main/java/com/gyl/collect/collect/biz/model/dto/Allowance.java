@@ -4,11 +4,27 @@ public class Allowance {
     private String uid;
     private String projectStart;
     private String projectEnd;
-    private Integer projectDays;
-    private Integer leaveDays;
+    private String projectDays;
+    private String leaveDays;
     private String leaveDetail;
     private String mark;
     private Integer state;
+
+    public String getProjectDays() {
+        return projectDays;
+    }
+
+    public void setProjectDays(String projectDays) {
+        this.projectDays = projectDays;
+    }
+
+    public String getLeaveDays() {
+        return leaveDays;
+    }
+
+    public void setLeaveDays(String leaveDays) {
+        this.leaveDays = leaveDays;
+    }
 
     public String getProjectStart() {
         return projectStart;
@@ -24,22 +40,6 @@ public class Allowance {
 
     public void setProjectEnd(String projectEnd) {
         this.projectEnd = projectEnd;
-    }
-
-    public Integer getProjectDays() {
-        return projectDays;
-    }
-
-    public void setProjectDays(Integer projectDays) {
-        this.projectDays = projectDays;
-    }
-
-    public Integer getLeaveDays() {
-        return leaveDays;
-    }
-
-    public void setLeaveDays(Integer leaveDays) {
-        this.leaveDays = leaveDays;
     }
 
     public String getLeaveDetail() {

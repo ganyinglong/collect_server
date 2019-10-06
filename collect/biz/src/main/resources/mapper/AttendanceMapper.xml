@@ -8,17 +8,17 @@
     </sql>
 
     <resultMap id="attendance_rm" type="com.gyl.collect.collect.biz.model.po.Attendance">
-        <result column="id" property="id"/>
-        <result column="uid" property="uid"/>
-        <result column="inputDate" property="input_date"/>
-        <result column="dateType" property="date_type"/>
-        <result column="checkinTime" property="checkin_time"/>
-        <result column="checkoutTime" property="checkout_time"/>
-        <result column="subsidyStartTime" property="subsidy_start_tim"/>
-        <result column="subsidyLength" property="subsidy_length"/>
-        <result column="subsidyAmount" property="subsidy_amoun"/>
-        <result column="collect_month" property="collectMonth"/>
-        <result column="collect_year" property="collectYear"/>
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="inputDate" column="input_date"/>
+        <result property="dateType" column="date_type"/>
+        <result property="checkinTime" column="checkin_time"/>
+        <result property="checkoutTime" column="checkout_time"/>
+        <result property="subsidyStartTime" column="subsidy_start_time"/>
+        <result property="subsidyLength" column="subsidy_length"/>
+        <result property="subsidyAmount" column="subsidy_amount"/>
+        <result property="collectMonth" column="collect_month"/>
+        <result property="collectYear" column="collect_year"/>
     </resultMap>
 
     <insert id="saveAttendance" parameterType="com.gyl.collect.collect.biz.model.po.Attendance">
@@ -38,4 +38,38 @@
         #{collectYear}
         )
     </insert>
+
+    <update id="updateAttendance" parameterType="com.gyl.collect.collect.biz.model.po.Attendance">
+        update work_collect.attendance set
+        date_type = #{dateType},
+        checkin_time = #{checkinTime},
+        checkout_time = #{checkoutTime},
+        subsidy_start_time = #{subsidyStartTime},
+        subsidy_length = #{subsidyLength},
+        subsidy_amount = #{subsidyAmount},
+        collect_month = #{collectMonth},
+        collect_year = #{collectYear}
+        where input_date = #{inputDate}
+        and uid = #{uid}
+    </update>
+
+    <select id="countAttendance" parameterType="com.gyl.collect.collect.biz.model.po.Attendance"
+            resultType="java.lang.Integer">
+        select count(1) from work_collect.attendance
+        where uid=#{uid} and input_date = #{inputDate}
+    </select>
+
+    <select id="quryUserAttendance" parameterType="java.util.Map" resultMap="attendance_rm">
+        select
+        <include refid="attendance_columns"/>
+        from work_collect.attendance
+        where uid = #{uid}
+        and collect_year = #{year}
+        and collect_month = #{month}
+    </select>
+
+    <delete id="deleteByMonth" parameterType="com.gyl.collect.collect.biz.model.po.Attendance">
+        delete from work_collect.attendance where collect_year = #{collectYear}
+        and collect_month = #{collectMonth}
+    </delete>
 </mapper>

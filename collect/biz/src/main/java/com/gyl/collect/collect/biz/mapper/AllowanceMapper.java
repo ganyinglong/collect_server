@@ -9,4 +9,5 @@ public interface AllowanceMapper {
     void saveAllowance(Allowance allowance);
 
     List<Allowance> selectAllowancesByUid(String uid);
+
 }

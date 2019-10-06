@@ -5,5 +5,5 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     username: work_collecter
     password: Gylcollecter
-#连接地址使用了docker的桥接，dbmysql为docker容器网络别名
+    # docker妗ユ帴妯″紡鐨刪ost鍚嶇О
     url: jdbc:mysql://dbmysql/work_collect

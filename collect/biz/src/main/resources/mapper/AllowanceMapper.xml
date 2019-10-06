@@ -31,11 +31,22 @@
         )
     </insert>
 
-    <select id="selectAllowancesByUid" parameterType="java.lang.String"
-            resultType="com.gyl.collect.collect.biz.model.dto.Allowance">
+    <resultMap id="allowance_rm" type="com.gyl.collect.collect.biz.model.dto.Allowance">
+        <result column="uid" property="uid"/>
+        <result column="project_start" property="projectStart"/>
+        <result column="project_end" property="projectEnd"/>
+        <result column="project_days" property="projectDays"/>
+        <result column="leave_days" property="leaveDays"/>
+        <result column="leave_detail" property="leaveDetail"/>
+        <result column="mark" property="mark"/>
+        <result column="state" property="state"/>
+    </resultMap>
+
+    <select id="selectAllowancesByUid" parameterType="java.lang.String" resultMap="allowance_rm">
         select
         <include refid="allowance_columns"/>
         from work_collect.allowance
         where uid = #{uid}
+        order by project_start desc
     </select>
 </mapper>

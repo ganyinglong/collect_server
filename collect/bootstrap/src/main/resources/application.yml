@@ -3,5 +3,12 @@ spring:
     active: dev
   application:
     name: collect
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 server:
-  port: 8099
+  port: 8080
+
+logging:
+  config: classpath:log4j2-spring-${spring.profiles.active}.xml
+  path: ${log.home:D:/logs/visit}
